@@ -41,9 +41,8 @@ app.get("/checkout", function (req, res) {
       automatic_payment_methods: { enabled: true },
     })
     .then((intent) => {
-      console.log(intent);
-
       res.render("checkout", {
+        client_secret: intent.client_secret,
         title: title,
         amount: amount,
         error: error,
